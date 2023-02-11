@@ -1,0 +1,33 @@
+<div class="content">
+    <div fxLayoutAlign="center center" fxFlexFill>
+        <mat-card fxFlex="50" style="background: white !important;">
+            <h1 style="color: blue;text-align: center;font-size: 50px;margin-bottom: 36px;margin-top: 41px;">NOKIA</h1>
+            <p style="text-align: center;font-size: 40px;margin-top: 7px;margin-bottom: 34px;">FACILIVISS</p>
+            <form fxLayout="column" [formGroup]="loginForm" fxLayoutAlign="center center">
+                <mat-form-field class="example-full-width" appearance="outline" style="width: 80%;">
+                    <mat-label>Email</mat-label>
+                    <mat-icon matPrefix>account_circle</mat-icon>
+                    <input matInput placeholder="Ex.john@gmail.com" formControlName=email>
+                    <mat-error *ngIf="loginForm?.get('email')?.hasError('email')">
+                        Please enter valid email
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline" style="width: 80%;">
+                    <mat-label>Password</mat-label>
+                    <mat-icon matPrefix>lock</mat-icon>
+                    <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password">
+                    <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                        {{showPassword?'visibility_off':'visibility'}}
+                    </mat-icon>
+                    <mat-error *ngIf="loginForm?.get('password')?.hasError('minlength')">
+                        Password should be minimum 6 characters
+                    </mat-error>
+                </mat-form-field>
+                <a style="float: right;margin-right: -500px;">Forgot Password?</a>
+                <button mat-flat-button color="primary" routerLink="/dashboard" [disabled]="!loginForm.valid"
+                    style="width: 80%;margin: 20px;"> Submit </button>
+
+            </form>
+        </mat-card>
+    </div>
+</div>

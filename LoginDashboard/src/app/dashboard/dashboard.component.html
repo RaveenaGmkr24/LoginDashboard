@@ -1,0 +1,127 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Energyviss / Live Dashboard</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with refresh icon">
+        <mat-icon>refresh</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with clock icon">
+        <mat-icon>alarm</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with profile icon">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+</mat-toolbar>
+<div class="content" fxLayout="column" fxLayoutGap="1%" style="padding: 0px 10px;">
+    <div fxFlex="10%">
+        <mat-card fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1%" style="padding: 0px 20px 0px 20px;">
+            <p>FLOOR:</p>
+            <mat-form-field fxFlex="20%" appearance="fill">
+                <mat-label>Floor</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let item of floors" [value]="item">
+                        {{item}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <p>SECTION:</p>
+            <mat-form-field fxFlex="20%" appearance="fill">
+                <mat-label>Section</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let item of sections" [value]="item">
+                        {{item}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <p>VIEW:</p>
+            <mat-form-field fxFlex="20%" appearance="fill">
+                <mat-label>View</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let item of views" [value]="item">
+                        {{item}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <p>METER:</p>
+            <mat-form-field fxFlex="20%" appearance="fill">
+                <mat-label>Meter</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let item of meters" [value]="item">
+                        {{item}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-card>
+    </div>
+    <div fxFlex="8%">
+        <mat-card fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5%"
+            style="height: 63px;padding: 0px 20px 0px 20px;">
+            <p fxFlex="35%" style="font-size: 17px;font-weight: 500;padding-left: 10px  !important;">ENERGY:<span
+                    style="color: red;">156.610 kWh</span></p>
+            <p fxFlex="35%" style="font-size: 17px;font-weight: 500;">LAST UPDATED:<span style="color: red;">22/06/2021
+                    12:07 PM</span></p>
+            <p fxFlex="35%" style="font-size: 17px;font-weight: 500;">NEXT HOUR PREDICTED ENERGY:<span
+                    style="color: red;">157.393.05 kWh</span></p>
+        </mat-card>
+    </div>
+    <div fxFlex="60%">
+        <mat-card>
+            <h3 style="font-weight: 500;padding: 15px 0px 0px 20px">KEY PARAMETERS</h3>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5%"
+                style="height: 200px;padding: 0px 20px 0px 20px;">
+                <div fxFlex="20%" fxLayout="column" fxLayoutAlign="center center">
+                    <round-progress style="display: unset;width: 160px !important;" [current]="220" [max]="240.32"
+                        [color]="'#45ccce'" [background]="'#eaeaea'" [radius]="125" [stroke]="20" [semicircle]="true"
+                        [rounded]="true" [clockwise]="false" [responsive]="false" [duration]="800"
+                        [animation]="'easeInOutQuart'" [animationDelay]="0"></round-progress>
+                    <span style="font-size: 40px;">240.32</span>
+                    <p style="padding: 20px;">Voltage (V)</p>
+                </div>
+                <div fxFlex="20%" fxLayout="column" fxLayoutAlign="center center">
+                    <round-progress style="display: unset;width: 160px !important;" [current]="2" [max]="11.07"
+                        [color]="'#45ccce'" [background]="'#eaeaea'" [radius]="125" [stroke]="20" [semicircle]="true"
+                        [rounded]="true" [clockwise]="false" [responsive]="false" [duration]="800"
+                        [animation]="'easeInOutQuart'" [animationDelay]="0"></round-progress>
+                    <span style="font-size: 40px;">11.07</span>
+                    <p style="padding: 20px;">Current (A)</p>
+                </div>
+                <div fxFlex="20%" fxLayout="column" fxLayoutAlign="center center">
+                    <round-progress style="display: unset;width: 160px !important;" [current]="0" [max]="0.17"
+                        [color]="'#45ccce'" [background]="'#eaeaea'" [radius]="125" [stroke]="20" [semicircle]="true"
+                        [rounded]="true" [clockwise]="false" [responsive]="false" [duration]="800"
+                        [animation]="'easeInOutQuart'" [animationDelay]="0"></round-progress>
+                    <span style="font-size: 40px;">0.17</span>
+                    <p style="padding: 20px;">Power (kW)</p>
+                </div>
+                <div fxFlex="20%" fxLayout="column" fxLayoutAlign="center center">
+                    <round-progress style="display: unset;width: 160px !important;" [current]="0.06" [max]="0.3"
+                        [color]="'#45ccce'" [background]="'#eaeaea'" [radius]="125" [stroke]="20" [semicircle]="true"
+                        [rounded]="true" [clockwise]="false" [responsive]="false" [duration]="800"
+                        [animation]="'easeInOutQuart'" [animationDelay]="0"></round-progress>
+                    <span style="font-size: 40px;">0.3</span>
+                    <p style="padding: 20px;">Power Factor</p>
+                </div>
+                <div fxFlex="20%" fxLayout="column" fxLayoutAlign="center center">
+                    <round-progress style="display: unset;width: 160px !important;" [current]="43" [max]="50.6"
+                        [color]="'#45ccce'" [background]="'#eaeaea'" [radius]="125" [stroke]="20" [semicircle]="true"
+                        [rounded]="true" [clockwise]="false" [responsive]="false" [duration]="800"
+                        [animation]="'easeInOutQuart'" [animationDelay]="0"></round-progress>
+                    <span style="font-size: 40px;">50.6</span>
+                    <p style="padding: 20px;">Frequency (Hz)</p>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+    <div fxFlex="45%">
+        <mat-card>
+            <h3 style="font-weight: 500;padding: 15px 0px 0px 20px">Line Chart</h3>
+         
+            <!-- <div id="chart-container">
+                <canvas #myCanvas id="canvas" baseChart [chartType]="chartType" [datasets]="chartData" [labels]="chartLabels" [colors]="chartColors" [options]="chartOptions"></canvas>
+            </div> -->
+            <!-- <ngx-line-chart [dataSets]="myDataSets" [xLabelFunction]="formXAxisValue.bind(this)"></ngx-line-chart> -->
+        </mat-card>
+    </div>
+</div>
